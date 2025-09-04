@@ -1,4 +1,4 @@
-add_library(libskydebug libskydebug.cpp)
+add_library(libskydebug process.cpp)
 add_library(skydebug::libskydebug ALIAS libskydebug)
 
 set_target_properties(
