@@ -37,7 +37,7 @@ std::unique_ptr<skydebug::process> skydebug::process::attach(pid_t pid) {
   }
   if (ptrace(PTRACE_ATTACH, pid, nullptr, nullptr) < 0) {
     // Error: Could not attach
-    error::send_errno("could not attach to pid - " + pid);
+    error::send_errno("could not attach to pid");
   }
   std::unique_ptr<skydebug::process> proc(new process(pid, false));
   return proc;
@@ -78,7 +78,7 @@ skydebug::process::~process() {
   if (pid_ != 0) {
     int status;
     if (state_ == process_state::running) {
-      kill(pid_, SIGSTOP) #include<cstdint>;
+      kill(pid_, SIGSTOP);
       waitpid(pid_, &status, 0);
     }
     ptrace(PTRACE_DETACH, pid_, nullptr, nullptr);

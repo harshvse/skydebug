@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.15)
 
 project("skydebug" VERSION 0.1 DESCRIPTION "A Native debugger to debug compiled languages" LANGUAGES CXX)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(readline REQUIRED IMPORTED_TARGET readline)
 
@@ -13,6 +15,6 @@ add_subdirectory(tools)
 
 
 if(BUILD_TESTING)
-    find_package(Catch2 CONFIG REQUIRED)
-    add_subdirectory(test)
+  find_package(Catch2 CONFIG REQUIRED)
+  add_subdirectory(test)
 endif()

@@ -1,6 +1,3 @@
-#include<libskydebug/libskydebug.hpp>
-#include<catch2/catch_test_macros.hpp>
+#include <catch2/catch_test_macros.hpp>
 
-TEST_CASE("Validate environment"){
-    REQUIRE(true);
-}
+TEST_CASE("Validate environment") { REQUIRE(true); }
