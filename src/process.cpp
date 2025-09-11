@@ -3,10 +3,12 @@
 #include <sys/wait.h>
 
 #include <libskydebug/error.hpp>
+#include <libskydebug/pipe.hpp>
 #include <libskydebug/process.hpp>
 
 std::unique_ptr<skydebug::process> skydebug::process::launch(
     std::filesystem::path path) {
+  pipe channel(true);
   pid_t pid = 0;
   if ((pid = fork()) < 0) {
     // Error: fork failed
