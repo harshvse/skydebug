@@ -1,4 +1,4 @@
-add_library(libskydebug process.cpp)
+add_library(libskydebug process.cpp pipe.cpp)
 add_library(skydebug::libskydebug ALIAS libskydebug)
 
 set_target_properties(
@@ -21,7 +21,7 @@ target_include_directories(
 )
 
 include(GNUInstallDirs)
-install(TARGETS libskydebug 
+install(TARGETS libskydebug
 EXPORT skydebug-targets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
